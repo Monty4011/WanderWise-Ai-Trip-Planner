@@ -13,10 +13,10 @@ const Hero = () => {
         Effortlessly plan your dream trip with AI-crafted itineraries tailored
         to your preferences, budget, and schedule. Discover, book, and go!
       </p>
-      <Link to={'/create-trip'}>
-      <Button>Get Started, It's Free</Button>
+      <Link to={'/create-trip'} className="cursor-pointer">
+      <Button >Get Started, It's Free</Button>
       </Link>
-      <img src="/landing.png" className="-mt-20" />
+      <img src="/landing.png" className="w-fit" />
     </div>
   );
 };
