@@ -1,18 +1,19 @@
 import { db } from "@/service/FirebaseConfig";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import UserTripCard from "./Components/UserTripCard";
 
 const MyTrip = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [userTrips, setUserTrips] = useState([]);
   useEffect(() => {
     GetUserTrips();
-  }, []);
+  }, [navigate, location]);
   const GetUserTrips = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
-    if (!user && window.location.pathname != "/") {
+    if (!user && location.pathname != "/") {
       navigate("/");
       return;
     } else if (!user) {
