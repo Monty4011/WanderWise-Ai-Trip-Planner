@@ -37,12 +37,15 @@ const HotelCard = ({ hotel }) => {
       target="_blank"
     >
       <div className="hover:scale-105 cursor-pointer transition-all">
-        <img src={photourl} className='rounded-xl h-[180px] w-full object-cover' />
+        <img
+          src={photourl ? photourl : "/no2.png"}
+          className="rounded-xl h-[180px] w-full object-cover"
+        />
         <div className="my-2 flex flex-col gap-2">
           <h2 className="font-medium">{hotel.hotelName}</h2>
           <h2 className="text-xs text-gray-500">📍{hotel.hotelAddress}</h2>
-          <h2 className="text-sm">🪙{hotel.price}</h2>
-          <h2 className="text-sm">⭐{hotel.rating}stars</h2>
+          {/* <h2 className="text-sm">🪙{hotel.price}</h2> */}
+          <h2 className="text-sm">⭐{hotel.rating}stars rated</h2>
         </div>
       </div>
     </Link>

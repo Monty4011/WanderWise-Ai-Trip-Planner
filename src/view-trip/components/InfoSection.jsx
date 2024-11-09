@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { GetPlaceDetails } from "@/service/GlobalAPI";
 import React, { useEffect, useState } from "react";
 import { IoIosSend } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const PHOTO_REF_URL =
   "https://places.googleapis.com/v1/{NAME}/media?maxHeightPx=600&maxWidthPx=1000&key=" +
@@ -52,9 +53,17 @@ const InfoSection = ({ trip }) => {
           </div>
         </div>
 
-        <Button>
-          <IoIosSend />
-        </Button>
+        <Link
+          to={
+            "https://www.google.com/maps/search/?api=1&query=" +
+            trip.userSelection?.location.label
+          }
+          target="_blank"
+        >
+          <Button>
+            <IoIosSend />
+          </Button>
+        </Link>
       </div>
     </div>
   );

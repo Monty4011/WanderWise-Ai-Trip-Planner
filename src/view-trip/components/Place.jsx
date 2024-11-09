@@ -29,30 +29,27 @@ const Place = ({ place }) => {
     });
   };
   return (
-    <Link
-      to={
-        "https://www.google.com/maps/search/?api=1&query=" +
-        place.geoCoordinates +
-        "," +
-        place.placeName
-      }
-      target="_blank"
-    >
-      <div className="shadow-md border rounded-xl p-5 mt-2 flex gap-5 hover:scale-105 hover:shadow-sm transition-all cursor-pointer">
-        <img
-          src={photourl}
-          className="w-[130px] h-[130px] rounded-xl"
-        />
-        <div>
-          <h2 className="font-bold text-lg">{place.placeName}</h2>
-          <p className="text-sm text-gray-400">{place.placeDetails}</p>
-          <h2 className="mt-2">🕙 {place?.timeToTravel}</h2>
-          <Button className="size-9">
-            <FaMapLocationDot />
-          </Button>
-        </div>
+    <div className="shadow-md border rounded-xl p-5 mt-2 flex gap-5 hover:scale-105 hover:shadow-sm transition-all cursor-pointer">
+      <img src={photourl} className="w-[130px] h-[130px] rounded-xl" />
+      <div>
+        <h2 className="font-bold text-lg">{place.placeName}</h2>
+        <p className="text-sm text-gray-400">{place.placeDetails}</p>
+        <h2 className="mt-2">🕙 {place?.timeToTravel}</h2>
+        <Button className="size-9">
+          <Link
+            to={
+              "https://www.google.com/maps/search/?api=1&query=" +
+              place.geoCoordinates +
+              "," +
+              place.placeName
+            }
+            target="_blank"
+          >
+            <FaMapLocationDot />{" "}
+          </Link>
+        </Button>
       </div>
-    </Link>
+    </div>
   );
 };
 
