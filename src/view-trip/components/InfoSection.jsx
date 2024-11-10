@@ -32,7 +32,7 @@ const InfoSection = ({ trip }) => {
     });
   };
   return (
-    <div>
+    <div className=" mt-5 sm:m-0" >
       <img
         src={photourl}
         className="w-full h-[340px] object-cover rounded-xl"
