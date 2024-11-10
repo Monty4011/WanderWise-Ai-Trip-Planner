@@ -16,11 +16,11 @@ import {
 } from "../ui/dialog";
 import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const user = JSON.parse(localStorage?.getItem("user"));
-
+  const navigate = useNavigate();
   useEffect(() => {}, [user]);
 
   const [openDialog, setOpenDialog] = useState(false);
@@ -85,6 +85,7 @@ const Header = () => {
               <PopoverContent className="w-fit mt-4 p-1">
                 <Button
                   onClick={() => {
+                    navigate("/");
                     googleLogout();
                     localStorage.clear();
                     window.location.reload();
