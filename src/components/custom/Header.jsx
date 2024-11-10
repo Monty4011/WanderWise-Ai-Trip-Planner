@@ -88,7 +88,7 @@ const Header = () => {
                     navigate("/");
                     googleLogout();
                     localStorage.clear();
-                    window.location.reload();
+                    // window.location.reload();
                   }}
                 >
                   Logout
