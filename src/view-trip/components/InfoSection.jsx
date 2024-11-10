@@ -10,9 +10,11 @@ const PHOTO_REF_URL =
 
 const InfoSection = ({ trip }) => {
   const [photourl, setPhotourl] = useState();
-
+  const [image, setImage] = useState();
   useEffect(() => {
     trip && GetPlacePhoto();
+    const num = Math.floor(Math.random() * 10);
+    setImage(num);
   }, [trip]);
 
   const GetPlacePhoto = async () => {
@@ -23,7 +25,7 @@ const InfoSection = ({ trip }) => {
       // console.log(resp.data.places[0].photos[3].name);
       const photoUrl = PHOTO_REF_URL.replace(
         "{NAME}",
-        resp.data.places[0].photos[3].name
+        resp.data.places[0].photos[image].name
       );
       setPhotourl(photoUrl);
     });

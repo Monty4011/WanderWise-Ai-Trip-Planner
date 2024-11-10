@@ -8,9 +8,21 @@ const PHOTO_REF_URL =
 
 const HotelCard = ({ hotel }) => {
   const [photourl, setPhotourl] = useState();
+  const [price, setPrice] = useState("");
 
   useEffect(() => {
     hotel && GetPlacePhoto();
+
+    if(hotel.price=="$"){
+      setPrice("0 - 50 $")
+    }
+    else if(hotel.price=="$$"){
+      setPrice("50 - 150 $")
+    }
+    else{
+      setPrice("150 - 400 $")
+    }
+
   }, [hotel]);
 
   const GetPlacePhoto = async () => {
@@ -26,6 +38,9 @@ const HotelCard = ({ hotel }) => {
       setPhotourl(photoUrl);
     });
   };
+
+  
+
   return (
     <Link
       to={
@@ -44,8 +59,8 @@ const HotelCard = ({ hotel }) => {
         <div className="my-2 flex flex-col gap-2">
           <h2 className="font-medium">{hotel.hotelName}</h2>
           <h2 className="text-xs text-gray-500">📍{hotel.hotelAddress}</h2>
-          {/* <h2 className="text-sm">🪙{hotel.price}</h2> */}
-          <h2 className="text-sm">⭐{hotel.rating}stars rated</h2>
+          <h2 className="text-sm">🪙{price} per night</h2>
+          <h2 className="text-sm">⭐{hotel.rating} stars rated</h2>
         </div>
       </div>
     </Link>

@@ -50,20 +50,26 @@ const Header = () => {
   };
 
   return (
-    <div className="p-3 shadow-sm flex justify-between items-center px-5">
+    <div className="py-2 px-2 shadow-sm flex justify-between items-center sm:px-5">
       <Link to={"/"}>
         <img src="/logo.svg" />
       </Link>
       <div>
         {user ? (
-          <div className="flex items-center gap-5 mr-2">
+          <div className="flex items-center gap-2 sm:gap-5 sm:mr-2">
             <Link to={"/create-trip"}>
-              <Button variant="outline" className="rounded-full">
+              <Button
+                variant="outline"
+                className="px-[6px] rounded-full text-xs sm:text-base"
+              >
                 + Add Trip
               </Button>
             </Link>
             <Link to={"/my-trips"}>
-              <Button variant="outline" className="rounded-full">
+              <Button
+                variant="outline"
+                className="px-[6px] rounded-full text-xs sm:text-base"
+              >
                 My Trips
               </Button>
             </Link>
