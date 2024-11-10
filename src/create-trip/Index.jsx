@@ -215,13 +215,12 @@ const Index = () => {
       </div>
 
       <div className="my-10 flex justify-end">
-        <Button onClick={onGenerateTrip} disabled={loading}>
+        <div onClick={onGenerateTrip} disabled={loading}>
           {loading ? (
-            <AiOutlineLoading3Quarters className="h-7 w-7 animate-spin" />
-          ) : (
-            "Generate Trip"
-          )}
-        </Button>
+            // <AiOutlineLoading3Quarters className="h-7 w-7 animate-spin" />
+            <img src="/plane2.gif" className="w-10 sm:w-12  lg:w-16 border rounded-full"/>
+          ) : <Button>Generate Trip</Button>}
+        </div>
       </div>
 
       <Dialog open={openDialog} onOpenChange={setOpenDialog}>

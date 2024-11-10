@@ -14,6 +14,7 @@ import { Toaster } from "./components/ui/toaster";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import View from "./view-trip/[tripId]/View";
 import MyTrip from "./My-Trips/MyTrip";
+import Footer from "./components/custom/Footer";
 
 // const router = createBrowserRouter([
 //   {
@@ -63,6 +64,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/view-trip/:tripId" element={<View />} />
         <Route path="/my-trips" element={<MyTrip />} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   </GoogleOAuthProvider>
 );

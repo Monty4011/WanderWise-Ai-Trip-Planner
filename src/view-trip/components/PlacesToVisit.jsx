@@ -4,7 +4,7 @@ import Place from "./Place";
 const PlacesToVisit = ({ trip }) => {
   return (
     <div>
-      <h2 className="font-bold text-lg mt-5">Place to Visit</h2>
+      <h2 className="font-bold text-lg mt-5">Places to Visit</h2>
       <div>
         {trip?.tripData?.itinerary?.map((item, index) => (
           <div key={index} className="mt-5">

@@ -11,6 +11,7 @@ const PHOTO_REF_URL =
 const InfoSection = ({ trip }) => {
   const [photourl, setPhotourl] = useState();
   const [image, setImage] = useState();
+
   useEffect(() => {
     trip && GetPlacePhoto();
     const num = Math.floor(Math.random() * 10);
@@ -37,19 +38,31 @@ const InfoSection = ({ trip }) => {
         className="w-full h-[340px] object-cover rounded-xl"
       />
 
-      <div className="flex justify-between  items-center">
-        <div className="my-5 flex flex-col gap-2">
-          <h2 className="font-bold text-2xl">
-            {trip.userSelection?.location.label}
-          </h2>
-          <div className="flex gap-5">
-            <h2 className="p-1 px-3 bg-gray-200 rounded-full text-gray-500 text-xs md:text-base">
-              📆 {trip.userSelection?.noOfDays} Day
+      <div className="flex justify-between items-center">
+        <div className="my-3 sm:my-5 flex flex-col gap-2">
+          <Link
+            to={
+              "https://www.google.com/maps/search/?api=1&query=" +
+              trip.userSelection?.location.label
+            }
+            target="_blank"
+          >
+            <h2 className="font-bold text-xl sm:text-2xl">
+              {trip.userSelection?.location.label}
             </h2>
-            <h2 className="p-1 px-3 bg-gray-200 rounded-full text-gray-500 text-xs md:text-base">
+          </Link>
+          <div className="flex gap-1 sm:gap-5 items-center">
+            <div>
+              {trip.userSelection?.noOfDays == "1" ? (
+                <h2 className="p-2 sm:p-1 sm:px-3 bg-gray-200 rounded-full text-gray-500 text-xs sm:text-base text-center">📆1 Day</h2>
+              ) : (
+                <h2 className="p-2 sm:p-1 sm:px-3 bg-gray-200 rounded-full text-gray-500 text-xs sm:text-base text-center">📆{trip.userSelection?.noOfDays} Days</h2>
+              )}
+            </div>
+            <h2 className="p-2 sm:p-1 sm:px-3 bg-gray-200 rounded-full text-gray-500 text-xs sm:text-base text-center">
               💰 {trip.userSelection?.budget} Budget
             </h2>
-            <h2 className="p-1 px-3 bg-gray-200 rounded-full text-gray-500 text-xs md:text-base">
+            <h2 className="p-2 sm:p-1 sm:px-3 bg-gray-200 rounded-full text-gray-500 text-xs sm:text-base text-center">
               🥂 No of Traveller : {trip.userSelection?.traveller}
             </h2>
           </div>
@@ -62,7 +75,7 @@ const InfoSection = ({ trip }) => {
           }
           target="_blank"
         >
-          <Button>
+          <Button className="hidden sm:inline">
             <IoIosSend />
           </Button>
         </Link>
